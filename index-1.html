@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ayush Raj Singh — Senior MIS Executive</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Cabinet+Grotesk:wght@300;400;500;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #080c14;
+  --bg2: #0d1220;
+  --bg3: #111827;
+  --card: rgba(255,255,255,0.04);
+  --card-border: rgba(255,255,255,0.08);
+  --gold: #f5a623;
+  --gold2: #ffcf70;
+  --teal: #00d4b4;
+  --blue: #4f8ef7;
+  --white: #f0f4ff;
+  --muted: #7d8ba8;
+  --ink: #1c2236;
+  --red: #ff4f6d;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Cabinet Grotesk',sans-serif;
+  background:var(--bg);
+  color:var(--white);
+  font-size:15px;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+/* ─── GRID BG ─── */
+body::before{
+  content:'';
+  position:fixed;top:0;left:0;right:0;bottom:0;
+  background-image:
+    linear-gradient(rgba(79,142,247,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79,142,247,0.03) 1px, transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 60px;
+  background:rgba(8,12,20,0.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(79,142,247,0.1);
+  transition:all 0.3s;
+}
+nav.scrolled{padding:14px 60px;background:rgba(8,12,20,0.97);}
+.nav-logo{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:1.1rem;color:var(--white);
+  text-decoration:none;letter-spacing:0.02em;
+}
+.nav-logo span{color:var(--gold);}
+.nav-links{display:flex;gap:8px;list-style:none;align-items:center;}
+.nav-links a{
+  text-decoration:none;color:var(--muted);
+  font-size:0.78rem;font-weight:600;letter-spacing:0.1em;
+  text-transform:uppercase;
+  padding:7px 14px;border-radius:8px;
+  transition:all 0.2s;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,0.07);}
+.nav-cta{
+  padding:8px 20px!important;
+  background:linear-gradient(135deg,var(--gold),#e8920f)!important;
+  color:var(--bg)!important;border-radius:8px!important;
+  font-weight:700!important;
+}
+.nav-cta:hover{opacity:0.9;transform:translateY(-1px);box-shadow:0 6px 20px rgba(245,166,35,0.3)!important;}
+
+/* ─── HERO ─── */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:120px 60px 80px;
+  position:relative;overflow:hidden;
+}
+.hero-glow{
+  position:absolute;top:-200px;right:-100px;
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle, rgba(79,142,247,0.12) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-glow2{
+  position:absolute;bottom:-200px;left:-100px;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle, rgba(245,166,35,0.08) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-content{max-width:900px;position:relative;z-index:1;}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 16px;border-radius:20px;
+  border:1px solid rgba(0,212,180,0.3);
+  background:rgba(0,212,180,0.08);
+  font-size:0.74rem;font-weight:600;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--teal);margin-bottom:28px;
+  opacity:0;animation:slideUp 0.6s 0.1s forwards;
+}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(1.3);}}
+
+.hero-name{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(3rem,7vw,6rem);
+  line-height:1;letter-spacing:-0.02em;
+  margin-bottom:8px;
+  opacity:0;animation:slideUp 0.7s 0.25s forwards;
+}
+.hero-name .line2{color:var(--gold);}
+.hero-title{
+  font-size:1.15rem;font-weight:400;
+  color:var(--muted);letter-spacing:0.02em;
+  margin-bottom:28px;
+  opacity:0;animation:slideUp 0.7s 0.4s forwards;
+}
+.hero-title span{color:var(--blue);}
+.hero-desc{
+  font-size:1rem;line-height:1.85;color:rgba(240,244,255,0.6);
+  max-width:600px;margin-bottom:44px;
+  opacity:0;animation:slideUp 0.7s 0.55s forwards;
+}
+.hero-desc strong{color:var(--white);font-weight:600;}
+
+.hero-actions{
+  display:flex;gap:14px;flex-wrap:wrap;
+  opacity:0;animation:slideUp 0.7s 0.7s forwards;
+}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 28px;border-radius:10px;
+  background:linear-gradient(135deg,var(--gold),#e8920f);
+  color:var(--bg);font-weight:700;font-size:0.88rem;
+  text-decoration:none;transition:all 0.25s;
+  letter-spacing:0.02em;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(245,166,35,0.35);}
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 28px;border-radius:10px;
+  border:1px solid var(--card-border);
+  background:var(--card);
+  color:var(--white);font-weight:600;font-size:0.88rem;
+  text-decoration:none;transition:all 0.25s;
+  backdrop-filter:blur(10px);
+}
+.btn-secondary:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px);}
+
+.hero-stats{
+  display:flex;gap:48px;margin-top:60px;padding-top:40px;
+  border-top:1px solid rgba(255,255,255,0.07);
+  opacity:0;animation:slideUp 0.7s 0.85s forwards;
+}
+.stat-item{}
+.stat-num{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:2.4rem;line-height:1;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.stat-label{font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;}
+
+@keyframes slideUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:none;}}
+
+/* ─── SECTION COMMON ─── */
+.section{padding:100px 60px;position:relative;z-index:1;opacity:0;transform:translateY(40px);transition:all 0.7s ease;}
+.section.visible{opacity:1;transform:none;}
+.section-label{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:0.7rem;font-weight:700;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--gold);
+  margin-bottom:14px;
+}
+.section-label::before{content:'';width:28px;height:2px;background:var(--gold);}
+.section-title{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(1.8rem,3.5vw,2.8rem);
+  line-height:1.1;margin-bottom:52px;letter-spacing:-0.01em;
+}
+.section-title span{color:var(--gold);}
+
+/* ─── EXPERIENCE ─── */
+.exp-wrapper{display:grid;grid-template-columns:220px 1fr;gap:0;position:relative;}
+.exp-wrapper::before{
+  content:'';position:absolute;left:219px;top:0;bottom:0;
+  width:1px;background:rgba(255,255,255,0.07);
+}
+.exp-timeline{padding-top:4px;}
+.exp-dot{
+  width:14px;height:14px;border-radius:50%;
+  background:var(--gold);border:2px solid var(--bg);
+  box-shadow:0 0 0 4px rgba(245,166,35,0.2);
+  margin-left:auto;margin-right:-7px;margin-top:6px;
+  position:relative;z-index:1;
+}
+.exp-period{font-size:0.72rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;line-height:1.4;}
+.exp-body{padding:0 0 0 40px;}
+.exp-card{
+  background:var(--card);
+  border:1px solid var(--card-border);
+  border-radius:18px;padding:36px 40px;
+  position:relative;overflow:hidden;
+  transition:all 0.3s;
+}
+.exp-card:hover{border-color:rgba(245,166,35,0.2);box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+.exp-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--blue),transparent);
+}
+.exp-role{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:1.4rem;color:var(--white);margin-bottom:4px;
+}
+.exp-company{
+  font-size:0.88rem;font-weight:500;
+  color:var(--blue);margin-bottom:28px;
+}
+.exp-tag{
+  display:inline-block;
+  padding:3px 12px;border-radius:6px;
+  background:rgba(79,142,247,0.12);
+  border:1px solid rgba(79,142,247,0.2);
+  font-size:0.72rem;font-weight:600;
+  color:var(--blue);letter-spacing:0.06em;margin-left:8px;
+}
+.exp-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 32px;margin-bottom:28px;}
+.exp-list li{
+  font-size:0.85rem;color:rgba(240,244,255,0.6);
+  line-height:1.65;padding-left:18px;position:relative;
+}
+.exp-list li::before{
+  content:'▸';position:absolute;left:0;
+  color:var(--gold);font-size:0.75rem;top:3px;
+}
+.achievements-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;}
+.achievement{
+  background:rgba(245,166,35,0.05);
+  border:1px solid rgba(245,166,35,0.12);
+  border-radius:12px;padding:18px 20px;
+}
+.ach-title{font-size:0.78rem;font-weight:700;color:var(--gold);margin-bottom:5px;text-transform:uppercase;letter-spacing:0.06em;}
+.ach-text{font-size:0.8rem;color:rgba(240,244,255,0.55);line-height:1.55;}
+
+/* ─── SKILLS ─── */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.skill-card{
+  background:var(--card);
+  border:1px solid var(--card-border);
+  border-radius:16px;padding:28px 24px;
+  transition:all 0.3s;cursor:default;position:relative;overflow:hidden;
+}
+.skill-card::after{
+  content:'';position:absolute;
+  bottom:-60px;right:-60px;
+  width:140px;height:140px;border-radius:50%;
+  background:radial-gradient(circle,rgba(79,142,247,0.06),transparent);
+  transition:all 0.4s;
+}
+.skill-card:hover{border-color:rgba(79,142,247,0.25);transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.25);}
+.skill-card:hover::after{transform:scale(2);}
+.skill-icon-wrap{
+  width:46px;height:46px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;margin-bottom:16px;
+  background:rgba(79,142,247,0.1);
+}
+.skill-name{font-size:0.92rem;font-weight:700;color:var(--white);margin-bottom:8px;}
+.skill-desc{font-size:0.78rem;color:var(--muted);line-height:1.6;}
+.skill-bar-row{display:flex;align-items:center;gap:10px;margin-top:14px;}
+.skill-bar{flex:1;height:3px;background:rgba(255,255,255,0.07);border-radius:2px;overflow:hidden;}
+.skill-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--teal));transform:scaleX(0);transform-origin:left;transition:transform 1s ease;}
+.section.visible .skill-fill{transform:scaleX(1);}
+.skill-pct{font-size:0.72rem;font-weight:600;color:var(--muted);}
+
+/* ─── PROJECTS ─── */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.project-card{
+  background:var(--card);
+  border:1px solid var(--card-border);
+  border-radius:18px;overflow:hidden;
+  transition:all 0.3s;cursor:pointer;
+  position:relative;
+}
+.project-card:hover{
+  border-color:rgba(245,166,35,0.25);
+  transform:translateY(-6px);
+  box-shadow:0 24px 64px rgba(0,0,0,0.35);
+}
+.project-thumb{
+  height:160px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:3.5rem;
+  position:relative;overflow:hidden;
+}
+.project-thumb::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 40%,rgba(8,12,20,0.6));
+}
+.project-body{padding:22px 24px 24px;}
+.project-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;}
+.project-tag{
+  padding:3px 10px;border-radius:5px;
+  font-size:0.68rem;font-weight:600;letter-spacing:0.06em;
+  text-transform:uppercase;
+}
+.tag-gold{background:rgba(245,166,35,0.12);color:var(--gold);border:1px solid rgba(245,166,35,0.2);}
+.tag-blue{background:rgba(79,142,247,0.12);color:var(--blue);border:1px solid rgba(79,142,247,0.2);}
+.tag-teal{background:rgba(0,212,180,0.1);color:var(--teal);border:1px solid rgba(0,212,180,0.2);}
+.project-title{
+  font-family:'Syne',sans-serif;font-weight:700;
+  font-size:1rem;color:var(--white);margin-bottom:8px;line-height:1.3;
+}
+.project-desc{font-size:0.8rem;color:var(--muted);line-height:1.6;margin-bottom:16px;}
+.project-metrics{display:flex;gap:20px;}
+.metric{text-align:center;}
+.metric-num{
+  font-family:'Syne',sans-serif;font-weight:700;
+  font-size:1.1rem;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.metric-label{font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;}
+.project-footer{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 24px;
+  border-top:1px solid rgba(255,255,255,0.05);
+}
+.project-open{
+  display:flex;align-items:center;gap:6px;
+  font-size:0.78rem;font-weight:600;color:var(--gold);
+  transition:gap 0.2s;
+}
+.project-card:hover .project-open{gap:10px;}
+
+/* ─── MODAL ─── */
+.modal-overlay{
+  position:fixed;inset:0;z-index:1000;
+  background:rgba(4,6,12,0.85);backdrop-filter:blur(12px);
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+  opacity:0;pointer-events:none;transition:opacity 0.3s;
+}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal{
+  background:#0f1523;
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:24px;
+  max-width:680px;width:100%;max-height:85vh;overflow-y:auto;
+  transform:scale(0.95) translateY(20px);transition:all 0.3s;
+}
+.modal-overlay.open .modal{transform:none;}
+.modal-header{
+  padding:32px 36px 24px;
+  border-bottom:1px solid rgba(255,255,255,0.07);
+  display:flex;justify-content:space-between;align-items:flex-start;gap:16px;
+}
+.modal-icon{font-size:2.8rem;line-height:1;}
+.modal-title{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:1.4rem;color:var(--white);margin-bottom:6px;
+}
+.modal-subtitle{font-size:0.85rem;color:var(--muted);}
+.modal-close{
+  width:36px;height:36px;border-radius:8px;
+  background:rgba(255,255,255,0.07);border:none;
+  color:var(--muted);font-size:1.2rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;flex-shrink:0;
+}
+.modal-close:hover{background:rgba(255,255,255,0.12);color:var(--white);}
+.modal-body{padding:28px 36px 36px;}
+.modal-section-title{
+  font-size:0.7rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.14em;color:var(--gold);margin-bottom:14px;margin-top:24px;
+}
+.modal-section-title:first-child{margin-top:0;}
+.modal-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.modal-list li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:0.85rem;color:rgba(240,244,255,0.7);line-height:1.6;
+}
+.modal-list li::before{content:'✦';color:var(--gold);font-size:0.6rem;margin-top:5px;flex-shrink:0;}
+.modal-stats-row{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  margin-top:8px;
+}
+.modal-stat{
+  background:rgba(245,166,35,0.06);
+  border:1px solid rgba(245,166,35,0.12);
+  border-radius:10px;padding:14px 16px;text-align:center;
+}
+.modal-stat-num{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.modal-stat-label{font-size:0.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;margin-top:3px;}
+.modal-tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+.modal-tool{
+  padding:5px 14px;border-radius:20px;
+  font-size:0.75rem;font-weight:600;
+  background:rgba(79,142,247,0.1);
+  border:1px solid rgba(79,142,247,0.2);
+  color:var(--blue);
+}
+
+/* ─── EDUCATION ─── */
+.edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.edu-card{
+  background:var(--card);border:1px solid var(--card-border);
+  border-radius:16px;padding:28px 24px;
+  transition:all 0.3s;position:relative;overflow:hidden;
+}
+.edu-card:hover{border-color:rgba(0,212,180,0.25);transform:translateY(-4px);}
+.edu-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--teal),transparent);
+}
+.edu-icon{
+  width:48px;height:48px;border-radius:12px;
+  background:rgba(0,212,180,0.1);
+  border:1px solid rgba(0,212,180,0.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;margin-bottom:18px;
+}
+.edu-degree{font-size:0.95rem;font-weight:700;color:var(--white);margin-bottom:5px;line-height:1.3;}
+.edu-school{font-size:0.8rem;color:var(--muted);margin-bottom:6px;}
+.edu-year{font-size:0.75rem;font-weight:600;color:var(--teal);}
+
+/* ─── SOFT SKILLS ─── */
+.soft-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.soft-card{
+  background:var(--card);border:1px solid var(--card-border);
+  border-radius:14px;padding:24px 18px;text-align:center;
+  transition:all 0.3s;
+}
+.soft-card:hover{border-color:rgba(255,79,109,0.25);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.2);}
+.soft-icon{font-size:1.8rem;margin-bottom:10px;}
+.soft-name{font-size:0.82rem;font-weight:600;color:var(--white);}
+
+/* ─── CONTACT STRIP ─── */
+.contact-strip{
+  background:linear-gradient(135deg,rgba(245,166,35,0.06) 0%,rgba(79,142,247,0.06) 100%);
+  border-top:1px solid rgba(255,255,255,0.05);
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  padding:60px;display:flex;gap:24px;flex-wrap:wrap;align-items:center;justify-content:center;
+}
+.contact-item{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 22px;border-radius:12px;
+  background:var(--card);border:1px solid var(--card-border);
+  font-size:0.85rem;color:var(--white);
+  text-decoration:none;transition:all 0.2s;
+}
+.contact-item:hover{border-color:var(--gold);color:var(--gold);}
+.contact-icon{
+  width:38px;height:38px;border-radius:9px;
+  background:rgba(245,166,35,0.12);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;
+}
+
+/* ─── FOOTER ─── */
+footer{
+  background:rgba(0,0,0,0.3);
+  text-align:center;padding:32px 40px;
+  font-size:0.78rem;color:var(--muted);
+  border-top:1px solid rgba(255,255,255,0.05);
+}
+footer strong{color:var(--white);}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:rgba(245,166,35,0.3);border-radius:3px;}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:1000px){
+  .projects-grid{grid-template-columns:1fr 1fr;}
+  .skills-grid{grid-template-columns:1fr 1fr;}
+  .exp-list{grid-template-columns:1fr;}
+  .achievements-row{grid-template-columns:1fr;}
+}
+@media(max-width:768px){
+  nav{padding:16px 24px;}
+  .nav-links{display:none;}
+  .hero{padding:100px 28px 60px;}
+  .section{padding:72px 28px;}
+  .projects-grid{grid-template-columns:1fr;}
+  .skills-grid{grid-template-columns:1fr;}
+  .edu-grid{grid-template-columns:1fr;}
+  .soft-grid{grid-template-columns:1fr 1fr;}
+  .exp-wrapper{grid-template-columns:1fr;}
+  .exp-wrapper::before{display:none;}
+  .exp-body{padding:20px 0 0;}
+  .exp-timeline{display:none;}
+  .hero-stats{gap:28px;}
+  .contact-strip{padding:40px 24px;}
+  .modal-header,.modal-body{padding-left:22px;padding-right:22px;}
+  .modal-stats-row{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a class="nav-logo" href="#">Ayush <span>Raj</span></a>
+  <ul class="nav-links">
+    <li><a href="#experience" data-section="experience">Experience</a></li>
+    <li><a href="#projects" data-section="projects">Projects</a></li>
+    <li><a href="#skills" data-section="skills">Skills</a></li>
+    <li><a href="#education" data-section="education">Education</a></li>
+    <li><a href="#contact" class="nav-cta" data-section="contact">Hire Me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🟢 Available for opportunities</div>
+    <h1 class="hero-name">
+      Ayush Raj<br><span class="line2">Singh</span>
+    </h1>
+    <p class="hero-title">Senior MIS Executive · <span>Data & Business Intelligence</span></p>
+    <p class="hero-desc">
+      Strategic and result-oriented professional with <strong>1.5 years</strong> of core experience in
+      data architecture, automated reporting, and business operations. Leading the MIS function at
+      <strong>MUDS Management</strong> — specialising in HRMS, Payroll & Recovery Analytics.
+      Proven track record of reducing manual workload by <strong>45%</strong> through automation.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">🚀 View My Projects</a>
+      <a href="#contact" class="btn-secondary">📩 Get in Touch</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num" data-count="45">0</div>
+        <div class="stat-label">% Workload Reduced</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-count="30">0</div>
+        <div class="stat-label">+ Reports Owned</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-count="5">0</div>
+        <div class="stat-label">+ Dashboards Built</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-count="100">0</div>
+        <div class="stat-label">% Data Accuracy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<div class="section" id="experience">
+  <div class="section-label">Career Journey</div>
+  <h2 class="section-title">Work <span>Experience</span></h2>
+  <div class="exp-wrapper">
+    <div class="exp-timeline">
+      <div class="exp-period">Oct 2024<br>— Present</div>
+      <div class="exp-dot" style="margin-top:12px;"></div>
+    </div>
+    <div class="exp-body">
+      <div class="exp-card">
+        <div class="exp-role">Senior MIS Executive <span class="exp-tag">Promoted</span></div>
+        <div class="exp-company">MUDS Management Pvt. Ltd. · Sector 16, Gurugram</div>
+        <ul class="exp-list">
+          <li>End-to-end ownership of 30+ business-critical reports (Leads, Recovery, Pendency) with zero-error data integrity</li>
+          <li>Mentoring junior MIS executives on advanced analytical techniques and quality audits</li>
+          <li>Re-engineered legacy trackers into Macro-enabled workbooks — 45% reduction in processing time</li>
+          <li>Designed specialised Recovery MIS to monitor collection efficiencies and liquidity</li>
+          <li>Overseeing full lifecycle of attendance records and employee pay-day calculations for seamless payroll</li>
+          <li>Rigorous data reconciliation between CRM and internal financial records to eliminate discrepancies</li>
+          <li>SPOC for ERP/CRM systems — conducting UAT and coordinating bug fixes with dev teams</li>
+          <li>Designing interactive dashboards and strategic analytical presentations for the CEO</li>
+        </ul>
+        <div class="achievements-row">
+          <div class="achievement">
+            <div class="ach-title">🚀 Rapid Career Growth</div>
+            <div class="ach-text">Promoted to Senior Executive within 1.5 years due to consistent excellence in data ownership and leading the MIS vertical.</div>
+          </div>
+          <div class="ach-achievement achievement">
+            <div class="ach-title">⚡ Automation Excellence</div>
+            <div class="ach-text">Successfully automated HR, Attendance & Recovery tracking systems — doubled the speed of monthly performance reviews.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="section" id="projects">
+  <div class="section-label">Portfolio</div>
+  <h2 class="section-title">Featured <span>Projects</span></h2>
+  <div class="projects-grid">
+
+    <!-- Card 1 -->
+    <div class="project-card" onclick="openModal('proj1')">
+      <div class="project-thumb" style="background:linear-gradient(135deg,#0d1f3c,#1a3a6c);">📊</div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="project-tag tag-gold">Power BI</span>
+          <span class="project-tag tag-blue">Excel VBA</span>
+        </div>
+        <div class="project-title">Recovery MIS Dashboard</div>
+        <div class="project-desc">Real-time collection efficiency tracker with drill-down analytics, liquidity monitoring and automated alerts.</div>
+        <div class="project-metrics">
+          <div class="metric"><div class="metric-num">45%</div><div class="metric-label">Faster Reports</div></div>
+          <div class="metric"><div class="metric-num">₹Cr+</div><div class="metric-label">Recovery Tracked</div></div>
+        </div>
+      </div>
+      <div class="project-footer">
+        <div class="project-open">View Case Study →</div>
+        <span class="project-tag tag-teal">MIS</span>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="project-card" onclick="openModal('proj2')">
+      <div class="project-thumb" style="background:linear-gradient(135deg,#0d2e1f,#1a5c3a);">🤖</div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="project-tag tag-gold">VBA Macros</span>
+          <span class="project-tag tag-teal">Automation</span>
+        </div>
+        <div class="project-title">HR Attendance Automation Engine</div>
+        <div class="project-desc">Full-lifecycle attendance tracking system with payroll calculation, leave management and exception alerts.</div>
+        <div class="project-metrics">
+          <div class="metric"><div class="metric-num">200+</div><div class="metric-label">Employees</div></div>
+          <div class="metric"><div class="metric-num">0</div><div class="metric-label">Manual Errors</div></div>
+        </div>
+      </div>
+      <div class="project-footer">
+        <div class="project-open">View Case Study →</div>
+        <span class="project-tag tag-gold">HRMS</span>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="project-card" onclick="openModal('proj3')">
+      <div class="project-thumb" style="background:linear-gradient(135deg,#1c1000,#3d2800);">📈</div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="project-tag tag-blue">Excel</span>
+          <span class="project-tag tag-gold">Pivot Tables</span>
+        </div>
+        <div class="project-title">Lead Analytics & Funnel Tracker</div>
+        <div class="project-desc">Dynamic lead pipeline dashboard with conversion funnel, source analysis and weekly performance reporting.</div>
+        <div class="project-metrics">
+          <div class="metric"><div class="metric-num">30+</div><div class="metric-label">Reports</div></div>
+          <div class="metric"><div class="metric-num">100%</div><div class="metric-label">Accuracy</div></div>
+        </div>
+      </div>
+      <div class="project-footer">
+        <div class="project-open">View Case Study →</div>
+        <span class="project-tag tag-blue">Sales</span>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="project-card" onclick="openModal('proj4')">
+      <div class="project-thumb" style="background:linear-gradient(135deg,#1a0a2e,#3d1a6e);">🎯</div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="project-tag tag-teal">Python</span>
+          <span class="project-tag tag-blue">SQL</span>
+        </div>
+        <div class="project-title">CEO Executive Intelligence Suite</div>
+        <div class="project-desc">Bespoke C-suite dashboard combining KPI tracking, strategic analytics, and one-click boardroom presentations.</div>
+        <div class="project-metrics">
+          <div class="metric"><div class="metric-num">6</div><div class="metric-label">KPI Modules</div></div>
+          <div class="metric"><div class="metric-num">CEO</div><div class="metric-label">Level Output</div></div>
+        </div>
+      </div>
+      <div class="project-footer">
+        <div class="project-open">View Case Study →</div>
+        <span class="project-tag tag-teal">Analytics</span>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="project-card" onclick="openModal('proj5')">
+      <div class="project-thumb" style="background:linear-gradient(135deg,#001a1f,#003d4a);">🔄</div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="project-tag tag-gold">ERP</span>
+          <span class="project-tag tag-blue">CRM</span>
+        </div>
+        <div class="project-title">ERP–CRM Data Reconciliation System</div>
+        <div class="project-desc">Automated cross-system data validation pipeline eliminating discrepancies between CRM and financial records.</div>
+        <div class="project-metrics">
+          <div class="metric"><div class="metric-num">2</div><div class="metric-label">Systems Linked</div></div>
+          <div class="metric"><div class="metric-num">Zero</div><div class="metric-label">Discrepancies</div></div>
+        </div>
+      </div>
+      <div class="project-footer">
+        <div class="project-open">View Case Study →</div>
+        <span class="project-tag tag-blue">Integration</span>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="project-card" onclick="openModal('proj6')">
+      <div class="project-thumb" style="background:linear-gradient(135deg,#1a0d00,#3d2900);">💰</div>
+      <div class="project-body">
+        <div class="project-tags">
+          <span class="project-tag tag-gold">Excel</span>
+          <span class="project-tag tag-teal">VBA</span>
+        </div>
+        <div class="project-title">Payroll Processing Automation</div>
+        <div class="project-desc">End-to-end payroll computation with statutory deductions, salary slip generation and audit trail — for 200+ employees.</div>
+        <div class="project-metrics">
+          <div class="metric"><div class="metric-num">50%</div><div class="metric-label">Time Saved</div></div>
+          <div class="metric"><div class="metric-num">200+</div><div class="metric-label">Payslips/mo</div></div>
+        </div>
+      </div>
+      <div class="project-footer">
+        <div class="project-open">View Case Study →</div>
+        <span class="project-tag tag-gold">Payroll</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="section" id="skills">
+  <div class="section-label">Technical Expertise</div>
+  <h2 class="section-title">Core <span>Skills</span></h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon-wrap">🏗️</div>
+      <div class="skill-name">Advanced MIS Architecture</div>
+      <div class="skill-desc">Automated, high-integrity reporting frameworks for Leads & Recovery; complex Pendency & Customer Status trackers.</div>
+      <div class="skill-bar-row"><div class="skill-bar"><div class="skill-fill" style="--w:0.95;transform:scaleX(var(--w))"></div></div><div class="skill-pct">95%</div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon-wrap">📊</div>
+      <div class="skill-name">Excel Mastery (Advanced)</div>
+      <div class="skill-desc">Expert-level: VBA/Macros, XLOOKUP, INDEX-MATCH, SUMIFS, Pivot Tables, Dynamic Arrays, Data Validation.</div>
+      <div class="skill-bar-row"><div class="skill-bar"><div class="skill-fill" style="--w:0.97;transform:scaleX(var(--w))"></div></div><div class="skill-pct">97%</div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon-wrap">📉</div>
+      <div class="skill-name">Power BI Dashboards</div>
+      <div class="skill-desc">Interactive, drillable BI dashboards — DAX measures, data modelling, C-suite presentation quality.</div>
+      <div class="skill-bar-row"><div class="skill-bar"><div class="skill-fill" style="--w:0.82;transform:scaleX(var(--w))"></div></div><div class="skill-pct">82%</div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon-wrap">🗄️</div>
+      <div class="skill-name">SQL & Data Engineering</div>
+      <div class="skill-desc">Complex queries, joins, stored procedures for data extraction, transformation, and validation across systems.</div>
+      <div class="skill-bar-row"><div class="skill-bar"><div class="skill-fill" style="--w:0.78;transform:scaleX(var(--w))"></div></div><div class="skill-pct">78%</div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon-wrap">🐍</div>
+      <div class="skill-name">Python for Analytics</div>
+      <div class="skill-desc">Pandas, NumPy for data wrangling; automation scripts to eliminate repetitive workflows.</div>
+      <div class="skill-bar-row"><div class="skill-bar"><div class="skill-fill" style="--w:0.72;transform:scaleX(var(--w))"></div></div><div class="skill-pct">72%</div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon-wrap">👥</div>
+      <div class="skill-name">HRMS & Payroll Systems</div>
+      <div class="skill-desc">Managing HRMS backends, daily attendance tracking, payroll with 100% precision and zero-error delivery.</div>
+      <div class="skill-bar-row"><div class="skill-bar"><div class="skill-fill" style="--w:0.90;transform:scaleX(var(--w))"></div></div><div class="skill-pct">90%</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<div class="section" id="education">
+  <div class="section-label">Academic Background</div>
+  <h2 class="section-title">Education & <span>Certifications</span></h2>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-icon">🎓</div>
+      <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
+      <div class="edu-school">Maharshi Dayanand University, Rohtak</div>
+      <div class="edu-year">2021 – 2024</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">🏫</div>
+      <div class="edu-degree">Senior Secondary — Science (A+)</div>
+      <div class="edu-school">Udai Pratap Inter College, Varanasi</div>
+      <div class="edu-year">Grade: A+</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">📜</div>
+      <div class="edu-degree">Data Analytics Professional Certificate</div>
+      <div class="edu-school">Ducat IT & Training Institute, Gurgaon · SQL, Python, Power BI</div>
+      <div class="edu-year">Feb 2024 – Oct 2024</div>
+    </div>
+  </div>
+</div>
+
+<!-- SOFT SKILLS -->
+<div class="section">
+  <div class="section-label">Beyond the Data</div>
+  <h2 class="section-title">Soft Skills & <span>Strengths</span></h2>
+  <div class="soft-grid">
+    <div class="soft-card"><div class="soft-icon">🧠</div><div class="soft-name">Strategic Thinking</div></div>
+    <div class="soft-card"><div class="soft-icon">🤝</div><div class="soft-name">Team Leadership</div></div>
+    <div class="soft-card"><div class="soft-icon">⏱️</div><div class="soft-name">Deadline Management</div></div>
+    <div class="soft-card"><div class="soft-icon">🔒</div><div class="soft-name">Data Integrity & Ethics</div></div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="contact-strip">
+  <a class="contact-item" href="tel:+919599319402"><div class="contact-icon">📞</div>+91 9599319402</a>
+  <a class="contact-item" href="mailto:ayushrajsingh399@gmail.com"><div class="contact-icon">✉️</div>ayushrajsingh399@gmail.com</a>
+  <div class="contact-item"><div class="contact-icon">📍</div>Sector 99A, Dhankot, Gurugram, Haryana</div>
+  <div class="contact-item"><div class="contact-icon">💬</div>Hindi · English</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>Crafted with precision · <strong>Ayush Raj Singh</strong> · Senior MIS Executive</p>
+  <p style="margin-top:6px;font-size:0.7rem;opacity:0.6;">© 2025 · Gurugram, Haryana</p>
+</footer>
+
+<!-- MODAL OVERLAY -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modalBox">
+    <div class="modal-header">
+      <div>
+        <div class="modal-icon" id="modalIcon"></div>
+        <div class="modal-title" id="modalTitle"></div>
+        <div class="modal-subtitle" id="modalSubtitle"></div>
+      </div>
+      <button class="modal-close" onclick="closeModalBtn()">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+/* ── NAV SCROLL ── */
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+  document.querySelectorAll('.nav-links a[data-section]').forEach(a => {
+    const sec = document.getElementById(a.dataset.section);
+    if (!sec) return;
+    const r = sec.getBoundingClientRect();
+    a.classList.toggle('active', r.top <= 100 && r.bottom > 100);
+  });
+});
+
+/* ── SCROLL REVEAL ── */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.section').forEach(s => observer.observe(s));
+
+/* ── COUNT-UP ── */
+const countObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = parseInt(el.dataset.count);
+    const suffix = el.parentElement.querySelector('.stat-label').textContent.includes('+') ? '+' : '%';
+    let current = 0;
+    const step = Math.ceil(target / 60);
+    const timer = setInterval(() => {
+      current = Math.min(current + step, target);
+      el.textContent = current + (suffix === '%' ? '%' : '+');
+      if (current >= target) clearInterval(timer);
+    }, 20);
+    countObserver.unobserve(el);
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(el => countObserver.observe(el));
+
+/* ── SKILL BARS ── */
+const skillObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.querySelectorAll('.skill-fill').forEach(bar => {
+      const w = parseFloat(bar.style.getPropertyValue('--w') || bar.style.cssText.match(/--w:([\d.]+)/)?.[1] || 0);
+      bar.style.transform = `scaleX(${w})`;
+    });
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('.section').forEach(s => skillObserver.observe(s));
+
+/* ── MODAL DATA ── */
+const projects = {
+  proj1: {
+    icon:'📊',title:'Recovery MIS Dashboard',subtitle:'Power BI · Excel VBA · Financial Analytics',
+    tools:['Power BI','Excel VBA','XLOOKUP','Pivot Tables','Conditional Formatting'],
+    stats:[{num:'45%',label:'Faster Reporting'},{num:'₹Cr+',label:'Recovery Tracked'},{num:'Daily',label:'Refresh Cycle'}],
+    highlights:[
+      'Built a fully automated Recovery MIS with drill-down by agent, zone and loan type',
+      'Real-time collection efficiency monitoring with traffic-light KPI alerts',
+      'Automated weekly and monthly recovery summary reports delivered to management',
+      'Integrated liquidity risk flags to highlight overdue accounts above threshold',
+      'Reduced 3-hour manual compilation to a 10-minute automated report run'
+    ],
+    impact:'This project transformed the recovery function by giving management instant visibility into collection performance, enabling faster intervention on at-risk accounts.'
+  },
+  proj2: {
+    icon:'🤖',title:'HR Attendance Automation Engine',subtitle:'VBA Macros · HRMS · Payroll Processing',
+    tools:['Excel VBA','Macros','HRMS Integration','Data Validation','Pivot Tables'],
+    stats:[{num:'200+',label:'Employees Covered'},{num:'Zero',label:'Manual Errors'},{num:'50%',label:'Time Saved'}],
+    highlights:[
+      'Macro-driven attendance system that auto-pulls data from the HRMS backend daily',
+      'Intelligent leave deduction logic handling 8+ leave types (CL, EL, SL, LWP)',
+      'Automatic payroll calculation engine with statutory deductions (PF, ESI, TDS)',
+      'Exception report generation — highlights latecomers, absentees and anomalies',
+      'One-click salary slip generation for each employee in a branded PDF format'
+    ],
+    impact:'Eliminated the entire manual attendance tracking process, saving 4+ hours per week and achieving zero payroll errors for 3 consecutive quarters.'
+  },
+  proj3: {
+    icon:'📈',title:'Lead Analytics & Funnel Tracker',subtitle:'Excel · Pivot Tables · Sales Intelligence',
+    tools:['Advanced Excel','Pivot Tables','Charts','SUMIFS','Dynamic Named Ranges'],
+    stats:[{num:'30+',label:'Report Types'},{num:'100%',label:'Data Accuracy'},{num:'Weekly',label:'Reporting Cycle'}],
+    highlights:[
+      'Dynamic lead pipeline showing stage-wise conversion across all channels',
+      'Source attribution analysis — identifies top-performing lead sources by ROI',
+      'Weekly trend analysis with month-on-month and year-on-year comparisons',
+      'Agent-wise and team-wise performance scoreboards with ranking tables',
+      'Automated data refresh with structured data import templates for CRM exports'
+    ],
+    impact:'Provided the sales team and management with a single source of truth for lead performance, helping identify conversion bottlenecks and prioritise high-value channels.'
+  },
+  proj4: {
+    icon:'🎯',title:'CEO Executive Intelligence Suite',subtitle:'Python · SQL · Power BI · Strategic Analytics',
+    tools:['Python (Pandas)','SQL','Power BI','Excel','Automated Email Reporting'],
+    stats:[{num:'6',label:'KPI Modules'},{num:'CEO',label:'Audience Level'},{num:'Real-time',label:'Refresh Rate'}],
+    highlights:[
+      'Multi-module executive dashboard covering Sales, Recovery, HR, Ops and Finance KPIs',
+      'One-page CEO briefing auto-generated every Monday with delta vs prior week',
+      'Python-driven data aggregation pulling from 4 different system sources',
+      'Interactive Power BI report with time-series trend analysis and forecasting',
+      'Board presentation templates pre-linked to live data for instant updates'
+    ],
+    impact:'Enabled the CEO to review entire business health in under 5 minutes every morning, driving faster and better-informed strategic decisions across all departments.'
+  },
+  proj5: {
+    icon:'🔄',title:'ERP–CRM Data Reconciliation System',subtitle:'ERP · CRM · Automated Validation · UAT',
+    tools:['Excel VBA','SQL Queries','ERP System','CRM Integration','Error Flagging Logic'],
+    stats:[{num:'2',label:'Systems Linked'},{num:'Zero',label:'Discrepancies'},{num:'Daily',label:'Validation Run'}],
+    highlights:[
+      'Automated daily comparison of financial records between CRM and ERP systems',
+      'Row-level mismatch detection with root-cause classification (data entry / sync delay)',
+      'Exception log maintained with escalation triggers for critical discrepancies',
+      'UAT coordination with dev teams to test fixes — 15+ bugs resolved across 2 releases',
+      'Eliminated end-of-month reconciliation crunch from 2 days to 30 minutes'
+    ],
+    impact:'Established a continuous data integrity layer between two major enterprise systems, giving finance and ops teams full confidence in their numbers at all times.'
+  },
+  proj6: {
+    icon:'💰',title:'Payroll Processing Automation',subtitle:'Excel VBA · Payroll · Statutory Compliance',
+    tools:['Excel VBA','Macro Automation','PF/ESI Calculation','Salary Slip Generator','Audit Trail'],
+    stats:[{num:'50%',label:'Time Reduced'},{num:'200+',label:'Payslips/Month'},{num:'Zero',label:'Discrepancies'}],
+    highlights:[
+      'Full payroll cycle automation from attendance import to final salary transfer file',
+      'Statutory compliance module: PF (12%), ESI (3.25%), TDS as per slab, Professional Tax',
+      'One-click salary slip generation in branded format sent via automated email',
+      'Payroll audit trail with version control and approval workflow tracking',
+      'Bank transfer file generator in NEFT-compatible format for direct upload'
+    ],
+    impact:'Transformed payroll processing from a 2-day manual effort to a 2-hour automated process with full statutory compliance and zero errors — for every pay cycle.'
+  }
+};
+
+function openModal(id) {
+  const p = projects[id];
+  if (!p) return;
+  document.getElementById('modalIcon').textContent = p.icon;
+  document.getElementById('modalTitle').textContent = p.title;
+  document.getElementById('modalSubtitle').textContent = p.subtitle;
+  document.getElementById('modalBody').innerHTML = `
+    <div class="modal-section-title">📌 Impact Metrics</div>
+    <div class="modal-stats-row">
+      ${p.stats.map(s=>`<div class="modal-stat"><div class="modal-stat-num">${s.num}</div><div class="modal-stat-label">${s.label}</div></div>`).join('')}
+    </div>
+    <div class="modal-section-title">🔧 Tools & Technologies</div>
+    <div class="modal-tools">${p.tools.map(t=>`<span class="modal-tool">${t}</span>`).join('')}</div>
+    <div class="modal-section-title">✦ Key Highlights</div>
+    <ul class="modal-list">${p.highlights.map(h=>`<li>${h}</li>`).join('')}</ul>
+    <div class="modal-section-title">🚀 Business Impact</div>
+    <p style="font-size:0.85rem;color:rgba(240,244,255,0.65);line-height:1.7;padding:16px 20px;background:rgba(245,166,35,0.05);border:1px solid rgba(245,166,35,0.12);border-radius:10px;">${p.impact}</p>
+  `;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModalBtn();
+}
+function closeModalBtn() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalBtn(); });
+</script>
+
+</body>
+</html>
